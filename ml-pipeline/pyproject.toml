@@ -1,0 +1,33 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+requires-python = ">=3.9"
+name = "ml-pipeline"
+readme = "README.md"
+dynamic = [ "version",]
+dependencies = [ "ipython>=8.10", "jupyterlab>=3.0", "notebook", "kedro~=0.19.9", "kedro[jupyter]", "kedro-datasets[pandas-csvdataset, pandas-exceldataset, pandas-parquetdataset]>=3.0", "kedro-viz>=6.7.0", "scikit-learn~=1.5.1",]
+
+[project.scripts]
+ml-pipeline = "ml-pipeline.__main__:main"
+
+[tool.kedro]
+package_name = "ml-pipeline"
+project_name = "ml-pipeline"
+kedro_init_version = "0.19.9"
+tools = "['None']"
+example_pipeline = "True"
+source_dir = "src"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.setuptools.dynamic.version]
+attr = "ml-pipeline.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false
+
+[tool.kedro_telemetry]
+project_id = "45b957d37f6a4a8b875e1d727621a5e5"
