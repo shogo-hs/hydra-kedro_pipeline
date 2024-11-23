@@ -1,0 +1,10 @@
+defaults:
+  - _self_
+  - preprocessing: default
+  - features: default
+  - hparams: default
+
+exp_name: my_exp
+# task_name: ${exp_name}
+
+# out_dir: ${hydra:runtime.output_dir}
